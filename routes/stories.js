@@ -106,7 +106,7 @@ router.get('/:id', ensureAuth, async (req, res) => {
             .lean()
         
         if (!story) {
-            return res.render('errpr/404')
+            return res.render('error/404')
         }
         res.render('stories/show', {
             story

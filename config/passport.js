@@ -18,12 +18,15 @@ module.exports = function(passport) {
         }
 
         try {   
-            let user = await User.findOne({googleId: profile.id});
+            let user = await User.findOne({googleID: profile.id});
+
             if (user) {
                 done(null, user)
+                console.log('welcome back user')
             } else {
                 user = await User.create(newUser);
                 done(null, user)
+                console.log('new user')
             }
         } catch (err) {
             console.error(err)
